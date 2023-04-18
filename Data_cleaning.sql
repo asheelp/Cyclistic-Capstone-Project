@@ -117,11 +117,9 @@ From clean_station_names
 Order by clean_start_stations
 
 
-
 Select distinct(clean_end_stations), start_station_id
 From clean_station_names
 Order by clean_end_stations
-
 #Stations and IDs match
 
 
