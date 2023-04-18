@@ -76,8 +76,8 @@ Group By end_station
 Order By end_station
 
 
-/* Found duplicates of Clinton St & Polk St, Canal St & Monroe St, Halsted St & 35th St, Halsted St & Blackhawk St, Loomis St & Taylor St, MLK Jr Dr & 56th St, Orleans St & Elm St, Ravenswood Ave & Montrose Ave, Sangamon St & Washington Blvd, Washtenaw Ave & 15th St
-/*
+#Found duplicates of Clinton St & Polk St, Canal St & Monroe St, Halsted St & 35th St, Halsted St & Blackhawk St, Loomis St & Taylor St, MLK Jr Dr & 56th St, Orleans St & Elm St, Ravenswood Ave & Montrose Ave, Sangamon St & Washington Blvd, Washtenaw Ave & 15th St
+
 
 #To Clean the Station Duplicates
 clean_station_names as(
@@ -118,12 +118,9 @@ clean_station_names as(
 
 
 #Confirm that the station IDs match the stations 
-
-
 Select distinct(clean_start_stations), start_station_id
 From clean_station_names
 Order by clean_start_stations
-
 
 
 
@@ -131,31 +128,15 @@ Select distinct(clean_end_stations), start_station_id
 From clean_station_names
 Order by clean_end_stations
 
-
-/* Stations and IDs match
-
-
-
-
-
-
-
-
-
-
-
+#Stations and IDs match
 
 
 
 #Confirm there is only 2 user types
-
-
 Select usertype, count(*)
 From clean_station_names
 Group by usertype
-
-
-/* There is a 3rd user type named dependent. After some digging, this seems to be the same person - we will remove him from the data as there is no further information regarding him:
+#There is a 3rd user type named dependent. After some digging, this seems to be the same person - we will remove him from the data as there is no further information regarding him:
 
 
 clean_usertypes as(
@@ -164,29 +145,14 @@ clean_usertypes as(
  Where usertype='Subscriber' OR usertype='Customer'),
 
 
+
 #Join the current data with location data for the stations
-
-
 data_stations as(
  Select *
  From clean_usertypes
  JOIN `high-transit-381405.Cyclistic.stations` stations
  ON clean_usertypes.clean_start_stations = stations.name
 ),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #Finalize the columns that we need
