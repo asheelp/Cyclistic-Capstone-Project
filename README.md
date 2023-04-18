@@ -1,6 +1,8 @@
 # Cyclistic-Capstone-Project
 
-In order to recieve the Google Data Analytics Professional Certificate, there is a final capstone project to be completed.
+In order to recieve the Google Data Analytics Professional Certificate, there is a final capstone project to be completed. 
+
+This project was completed using SQL and Tableau.
 
 *Scenario*:
 
