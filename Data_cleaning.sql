@@ -1,4 +1,3 @@
-Data Setup:
 
 #Combining all the 2016 Data:
 Create Table high-transit-381405.Cyclistic.Combined_2016 AS
@@ -28,17 +27,6 @@ FROM (
  UNION ALL
  SELECT * FROM `high-transit-381405.Cyclistic.Combined_2016`
 )
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -73,9 +61,6 @@ From clean_column_table
 
 
 
-
-
-
 ##Check start and end stations to see if there are any stations that could be spelled incorrectly, duplicates, used for maintenance, etc.
 
 
@@ -92,7 +77,7 @@ Order By end_station
 
 
 /* Found duplicates of Clinton St & Polk St, Canal St & Monroe St, Halsted St & 35th St, Halsted St & Blackhawk St, Loomis St & Taylor St, MLK Jr Dr & 56th St, Orleans St & Elm St, Ravenswood Ave & Montrose Ave, Sangamon St & Washington Blvd, Washtenaw Ave & 15th St
-
+/*
 
 #To Clean the Station Duplicates
 clean_station_names as(
@@ -188,16 +173,6 @@ data_stations as(
  JOIN `high-transit-381405.Cyclistic.stations` stations
  ON clean_usertypes.clean_start_stations = stations.name
 ),
-
-
-
-
-
-
-
-
-
-
 
 
 
