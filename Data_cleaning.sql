@@ -61,9 +61,7 @@ From clean_column_table
 
 
 
-##Check start and end stations to see if there are any stations that could be spelled incorrectly, duplicates, used for maintenance, etc.
-
-
+#Check start and end stations to see if there are any stations that could be spelled incorrectly, duplicates, used for maintenance, etc.
 Select start_station, count(*)
 From clean_column_table
 Group By start_station
@@ -74,8 +72,6 @@ Select end_station, count(*)
 From clean_column_table
 Group By end_station
 Order By end_station
-
-
 #Found duplicates of Clinton St & Polk St, Canal St & Monroe St, Halsted St & 35th St, Halsted St & Blackhawk St, Loomis St & Taylor St, MLK Jr Dr & 56th St, Orleans St & Elm St, Ravenswood Ave & Montrose Ave, Sangamon St & Washington Blvd, Washtenaw Ave & 15th St
 
 
@@ -115,8 +111,6 @@ clean_station_names as(
 
 
 
-
-
 #Confirm that the station IDs match the stations 
 Select distinct(clean_start_stations), start_station_id
 From clean_station_names
@@ -136,9 +130,8 @@ Order by clean_end_stations
 Select usertype, count(*)
 From clean_station_names
 Group by usertype
+
 #There is a 3rd user type named dependent. After some digging, this seems to be the same person - we will remove him from the data as there is no further information regarding him:
-
-
 clean_usertypes as(
  Select *
  From clean_station_names
